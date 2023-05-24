@@ -31,7 +31,6 @@ nav{
     width: 460px;
 }
 .outline{
-    /* width: 400px; */
     border:1px solid black;
     margin: 1px;
 }
@@ -93,4 +92,21 @@ a{
 }
 .extra_wide{
     width: 800px;
+}
+.bracket{
+    border-bottom:3px solid black ;
+    width: 200px;
+}
+.to_the_right{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 35px;
+}
+.tournament{
+    display: flex;
+    flex-direction: row ;
+}
+h3{
+    height: 35px;
 }
