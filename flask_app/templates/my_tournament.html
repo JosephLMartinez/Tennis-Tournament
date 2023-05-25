@@ -13,9 +13,25 @@
 </head>
 <body>
   <h1>{{tournament_players[0]['tournament_name']}}</h1>
-  {% for player in range(bracket_size) %}
-    <h3>{{tournament_players[player]['first_name']}}{{tournament_players[player]['last_name']}}</h3>
-  {% endfor %}
+  <div class="tournament">
+    <div>
+      {% for player in range(round_one[0]*2) %}
+        {% if player>= number_of_players %}
+          <h3 class="bracket"></h3>
+        {% else %}
+          <h3 class="bracket">{{tournament_players[player]['first_name']}}{{tournament_players[player]['last_name']}}</h3>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% for round in bracket_size %}
+      <div class="to_the_right">
+        {% for each in range(round) %}
+          <p class="bracket"></p>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+
 
 
 
