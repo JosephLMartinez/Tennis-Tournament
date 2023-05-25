@@ -58,7 +58,19 @@ def player_index():
     my_tournament=Player.get_tournament_id(session['user'])
     tournament_players=Tournament.get_players(my_tournament)
     number_of_players=len(tournament_players)
-    return render_template("my_tournament.html", tournament_players=tournament_players, number_of_players=number_of_players )
+    variable=1
+    bracket_size=[]
+    while number_of_players>=2*variable:
+        variable=variable*2
+        bracket_size.append(variable)
+        print(variable)
+    bracket_size=list(reversed(bracket_size))
+    print(bracket_size)
+    round_one=bracket_size
+    # while number_of_players>2**variable:
+    #     variable=variable+1
+    # bracket_size=2**variable
+    return render_template("my_tournament.html", tournament_players=tournament_players, bracket_size=bracket_size, round_one=round_one,number_of_players=number_of_players )
 
 # claims the tournament and shows you the bracket
 @app.route("/claim_tournament/<int:num>")
@@ -75,11 +87,19 @@ def join_tournament(num):
     my_tournament=Player.get_tournament_id(session['user'])
     tournament_players=Tournament.get_players(my_tournament)
     number_of_players=len(tournament_players)
-    i=0
-    while number_of_players>2**i:
-        i=i+1
-    bracket_size=2**i
-    return render_template("my_tournament.html", tournament_players=tournament_players, bracket_size=bracket_size)
+    variable=1
+    bracket_size=[1]
+    while number_of_players>=2*variable:
+        variable=variable*2
+        bracket_size.append(variable)
+        print(variable)
+    bracket_size=list(reversed(bracket_size))
+    print("b-size:", bracket_size)
+    round_one=bracket_size
+    # while number_of_players>2**variable:
+    #     variable=variable+1
+    # bracket_size=2**variable
+    return render_template("my_tournament.html", tournament_players=tournament_players, bracket_size=bracket_size, round_one=round_one,number_of_players=number_of_players)
 
 # If you can no longer attend the tournament
 @app.route("/leave_tournament")
