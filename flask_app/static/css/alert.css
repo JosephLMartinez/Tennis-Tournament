@@ -1,0 +1,30 @@
+/*insert into main css file*/
+/*feel free to change to match the page styling*/
+
+.alert-popup {
+    background-color: #fff;
+    width: 450px;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: larger;
+    display: none;
+}
+
+.alert-popup button {
+    display: block;
+    width: 100px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+    font-size: large;
+    background-color: dodgerblue;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px, 5px;
+}
+
